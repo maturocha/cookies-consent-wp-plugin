@@ -1,0 +1,33 @@
+#cookies-consent-box {
+	max-height: 999px;
+	min-height: 30px;
+	box-sizing: border-box;
+	z-index: 99999;
+	overflow: hidden;
+	color: #32383c;
+	position: fixed;
+	left: 20px;
+	bottom: 8%;
+	width: 300px;
+	background-color: #fff;
+	padding: 16px;
+	border: 1px solid #e8e8e8;
+	border-radius: 4px;
+	font-size: 12px;
+	line-height: 150%;
+	z-index: 99999;
+}
+
+#cookies-consent-box a.cookies-box-more-info-link {
+	color: blue;
+}
+
+#cookies-consent-box a.cookies-box-more-info-linkhover {
+   color: red;
+}
+
+#accept-cookie {
+	background-color: blue;
+	display: block;
+	margin-top: 8px;
+}

@@ -74,6 +74,7 @@ class Cookies_Consent_Public {
 		 */
 
 		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/cookies-consent-public.css', array(), $this->version, 'all' );
+		wp_register_style( 'cookies-styles' , plugin_dir_url( __FILE__ ) . 'css/cookies-box.css', array(), $this->version, 'all' );
 
 	}
 
@@ -97,7 +98,30 @@ class Cookies_Consent_Public {
 		 */
 
 		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/cookies-consent-public.js', array( 'jquery' ), $this->version, false );
+		wp_register_script( 'cookies-script' , plugin_dir_url( __FILE__ ) . 'js/cookies-script.js', array( 'jquery' ), $this->version, 'all' );
 
+	}
+
+	public function add_cookies_on_site() {
+
+		$options_list = get_option('wzb_cookies_options');
+		$enable_cookies = ( isset($options_list['wzb_enable_cookies']) && 
+												((!isset($_COOKIE['cookies-consent'])) ||
+												(isset($_COOKIE['cookies-consent']) && (!($_COOKIE['cookies-consent'])) ))
+											) ? true : false;
+
+											echo $enable_cookies;
+											
+		if ($enable_cookies) {
+
+			wp_enqueue_style( 'cookies-styles' );
+			wp_enqueue_script( 'cookies-script' );
+
+
+			include( plugin_dir_path( __FILE__ ) . 'partials/cookies-consent-box-layout.php' );
+	
+		}
+	
 	}
 
 }

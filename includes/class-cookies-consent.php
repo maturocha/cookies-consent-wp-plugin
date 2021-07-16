@@ -157,6 +157,10 @@ class Cookies_Consent {
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
 
+		$this->loader->add_action( 'admin_menu', $plugin_admin, 'add_menu' );
+		$this->loader->add_action( 'admin_init', $plugin_admin, 'add_general_settings');
+		$this->loader->add_action( 'admin_init', $plugin_admin, 'add_cookies_settings');
+
 	}
 
 	/**
@@ -172,6 +176,8 @@ class Cookies_Consent {
 
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_styles' );
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_scripts' );
+
+		$this->loader->add_filter( 'wp_footer', $plugin_public, 'add_cookies_on_site' );
 
 	}
 

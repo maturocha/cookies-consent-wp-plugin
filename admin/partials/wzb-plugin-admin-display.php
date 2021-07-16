@@ -5,11 +5,11 @@
  *
  * This file is used to markup the admin-facing aspects of the plugin.
  *
- * @link       https://maturocha.com.ar/
+ * @link       https://wazabimkt.com/
  * @since      1.0.0
  *
- * @package    Cookies_Consent
- * @subpackage Cookies_Consent/admin/partials
+ * @package    Wzb_Plugin
+ * @subpackage Wzb_Plugin/admin/partials
  */
 ?>
 
